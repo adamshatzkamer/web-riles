@@ -81,3 +81,32 @@ test('legal pages exist and are linked from the footer and the form area', () =>
     'legal notices must link the privacy policy',
   );
 });
+
+test('waitlist form captures explicit consent with a logged timestamp', () => {
+  const html = read('index.html');
+  assert.match(
+    html,
+    /<input[^>]*type="checkbox"[^>]*name="consent"[^>]*required/,
+    'waitlist form must require an explicit consent checkbox',
+  );
+  assert.match(html, /name="consent_timestamp"/, 'consent timestamp must be submitted');
+
+  const js = read('js/app.js');
+  assert.match(js, /form-consent-timestamp/, 'app.js must write the consent timestamp');
+  assert.match(js, /consentBox\.checked/, 'app.js must refuse to submit without consent');
+});
+
+test('analytics trackers only load after cookie consent', () => {
+  const html = read('index.html');
+  assert.match(html, /id="cookie-consent-banner"/, 'cookie consent banner must exist');
+  assert.match(
+    html,
+    /href="\.\/confidentialite\.html#cookies"/,
+    'banner must link the cookie section of the privacy policy',
+  );
+
+  const js = read('js/app.js');
+  assert.match(js, /riles_cookie_consent/, 'consent choice must be persisted');
+  assert.match(js, /storedConsent === 'granted'/, 'trackers must only load on explicit consent');
+  assert.match(js, /showCookieConsentBanner\(\)/, 'banner must be shown when no choice is stored');
+});

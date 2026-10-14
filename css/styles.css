@@ -1448,6 +1448,68 @@ body {
   color: var(--brand);
 }
 
+/* Case de consentement RGPD du formulaire de liste d'attente */
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--slate-600);
+  line-height: 1.5;
+}
+
+.consent-row input[type='checkbox'] {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: var(--brand);
+}
+
+.consent-row a {
+  color: var(--brand);
+}
+
+/* Bannière de consentement aux traceurs */
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 70;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.cookie-banner[hidden] {
+  display: none;
+}
+
+.cookie-banner-text {
+  flex: 1 1 380px;
+  font-size: 13.5px;
+  color: var(--slate-600);
+}
+
+.cookie-banner-text a {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 8px;
+}
+
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */

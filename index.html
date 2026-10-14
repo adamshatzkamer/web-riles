@@ -778,6 +778,17 @@
               </div>
             </div>
 
+            <div class="consent-row">
+              <input type="checkbox" id="form-consent" name="consent" required />
+              <label for="form-consent">
+                J'accepte que mon email et mes réponses soient utilisés pour la liste d'attente,
+                comme décrit dans la
+                <a href="./confidentialite.html">politique de confidentialité</a>. L'horodatage de
+                ce consentement est enregistré avec mon inscription. *
+              </label>
+            </div>
+            <input type="hidden" id="form-consent-timestamp" name="consent_timestamp" value="" />
+
             <button
               type="submit"
               id="btn-submit-waitlist"
@@ -919,6 +930,30 @@
       <input type="text" name="utm_source" />
       <input type="text" name="founder_offer" />
     </form>
+
+    <!-- BANNIÈRE DE CONSENTEMENT AUX TRACEURS (aucun traceur chargé avant le choix) -->
+    <div
+      id="cookie-consent-banner"
+      class="cookie-banner"
+      role="dialog"
+      aria-live="polite"
+      aria-label="Consentement aux cookies de mesure d'audience"
+      hidden
+    >
+      <p class="cookie-banner-text">
+        Ce site utilise uniquement des cookies de mesure d'audience (PostHog, Microsoft Clarity,
+        Google Analytics). Rien n'est chargé sans ton accord et tu peux le retirer à tout moment.
+        <a href="./confidentialite.html#cookies">En savoir plus</a>
+      </p>
+      <div class="cookie-banner-actions">
+        <button type="button" id="cookie-consent-accept" class="btn btn-primary btn-sm">
+          Accepter
+        </button>
+        <button type="button" id="cookie-consent-refuse" class="btn btn-secondary btn-sm">
+          Refuser
+        </button>
+      </div>
+    </div>
 
     <script src="./js/app.js"></script>
   </body>
