@@ -1,750 +1,913 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Riles — Le premier coach running IA qui s'adapte à ta vraie vie</title>
-  <meta
-    name="description"
-    content="Boulot tard, fatigue ou imprévu ? Teste en 20 secondes le premier plan d'entraînement running (10 km, Semi, Marathon, Trail) qui rééquilibre ta semaine sans croix rouge ni culpabilité."
-  />
-  <meta name="keywords" content="coach running IA, plan semi-marathon adaptatif, entrainement marathon intelligent, plan 10km personnalisé, application running flexible, reprise course sans blessure, synchronisation strava garmin, trail dénivelé" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#FF4D1C" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riles — Le premier coach running IA qui s'adapte à ta vraie vie</title>
+    <meta
+      name="description"
+      content="Boulot tard, fatigue ou imprévu ? Teste en 20 secondes le premier plan d'entraînement running (10 km, Semi, Marathon, Trail) qui rééquilibre ta semaine sans croix rouge ni culpabilité."
+    />
+    <meta
+      name="keywords"
+      content="coach running IA, plan semi-marathon adaptatif, entrainement marathon intelligent, plan 10km personnalisé, application running flexible, reprise course sans blessure, synchronisation strava garmin, trail dénivelé"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#FF4D1C" />
 
-  <!-- OPEN GRAPH / FACEBOOK / WHATSAPP / LINKEDIN -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Riles" />
-  <meta property="og:locale" content="fr_FR" />
-  <meta property="og:title" content="Riles — Ton plan running, à ton rythme (Sans culpabilité)" />
-  <meta
-    property="og:description"
-    content="Clique sur un imprévu et regarde comment l'IA recalcule ta semaine de prépa en 10 secondes à partir de tes données Strava & Garmin."
-  />
-  <meta property="og:image" content="./assets/maquettes/home-1.png" />
+    <!-- OPEN GRAPH / FACEBOOK / WHATSAPP / LINKEDIN -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Riles" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content="Riles — Ton plan running, à ton rythme (Sans culpabilité)" />
+    <meta
+      property="og:description"
+      content="Clique sur un imprévu et regarde comment l'IA recalcule ta semaine de prépa en 10 secondes à partir de tes données Strava & Garmin."
+    />
+    <meta property="og:image" content="./assets/maquettes/home-1.png" />
 
-  <!-- TWITTER CARDS / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Riles — Le coach running IA qui s'adapte à ta vraie vie" />
-  <meta
-    name="twitter:description"
-    content="Imprévu, fatigue, retard ? Recalcule ta semaine de prépa running en 10 secondes sans culpabilité."
-  />
-  <meta name="twitter:image" content="./assets/maquettes/home-1.png" />
+    <!-- TWITTER CARDS / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Riles — Le coach running IA qui s'adapte à ta vraie vie" />
+    <meta
+      name="twitter:description"
+      content="Imprévu, fatigue, retard ? Recalcule ta semaine de prépa running en 10 secondes sans culpabilité."
+    />
+    <meta name="twitter:image" content="./assets/maquettes/home-1.png" />
 
-  <!-- DONNÉES STRUCTURÉES SCHEMA.ORG (SEO GOOGLE APPLICATION SPORTIVE) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Riles",
-    "alternateName": "Riles Coach Running IA",
-    "applicationCategory": "HealthAndFitnessApplication",
-    "operatingSystem": "iOS, Android, Web",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR",
-      "description": "Accès gratuit Bêta Fondateur"
-    },
-    "description": "Coach running propulsé par l'IA qui adapte dynamiquement les séances de 10 km, semi-marathon, marathon et trail en cas d'imprévu, de retard ou de fatigue.",
-    "featureList": [
-      "Adaptation instantanée de séance en cas d'imprévu",
-      "Algorithme anti-blessure et calcul de charge RPE",
-      "Synchronisation Strava et montres Garmin, Coros, Apple Watch",
-      "Simulateur de recalcul de plan en direct"
-    ]
-  }
-  </script>
+    <!-- DONNÉES STRUCTURÉES SCHEMA.ORG (SEO GOOGLE APPLICATION SPORTIVE) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Riles",
+        "alternateName": "Riles Coach Running IA",
+        "applicationCategory": "HealthAndFitnessApplication",
+        "operatingSystem": "iOS, Android, Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "description": "Accès gratuit Bêta Fondateur"
+        },
+        "description": "Coach running propulsé par l'IA qui adapte dynamiquement les séances de 10 km, semi-marathon, marathon et trail en cas d'imprévu, de retard ou de fatigue.",
+        "featureList": [
+          "Adaptation instantanée de séance en cas d'imprévu",
+          "Algorithme anti-blessure et calcul de charge RPE",
+          "Synchronisation Strava et montres Garmin, Coros, Apple Watch",
+          "Simulateur de recalcul de plan en direct"
+        ]
+      }
+    </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="./css/styles.css" />
-</head>
-<body>
-
-  <!-- BARRE DE PRÉVISUALISATION DES 3 ANGLES MARKETING (Visible en local ou avec ?preview=1) -->
-  <div id="angle-switcher-bar" class="angle-switcher-bar" style="display: none;">
-    <div class="angle-switcher-inner">
-      <span>🧪 <strong>Mode Test Marketing :</strong> Clique pour prévisualiser les 3 accroches A/B testées :</span>
-      <div class="angle-pills">
-        <button type="button" class="angle-pill active" data-angle-switch="guilt">
-          Angle 1 : Zéro Culpabilité (?angle=guilt)
-        </button>
-        <button type="button" class="angle-pill" data-angle-switch="injury">
-          Angle 2 : Anti-Blessure (?angle=injury)
-        </button>
-        <button type="button" class="angle-pill" data-angle-switch="garmin">
-          Angle 3 : Vs Montre Muette (?angle=garmin)
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- NAVIGATION -->
-  <header class="navbar">
-    <div class="container navbar-inner">
-      <a href="#" class="brand-logo">
-        <span class="brand-icon">P</span>
-        <span>Riles <small style="font-weight: 600; font-size: 12px; color: var(--brand); margin-left: 4px;">BETA</small></span>
-      </a>
-      <nav class="nav-links">
-        <a href="#simulateur">Tester le simulateur (20s)</a>
-        <a href="#comparatif">Pourquoi Riles ?</a>
-        <a href="#apercu">Aperçu de l'app</a>
-      </nav>
-      <button
-        type="button"
-        class="btn btn-primary btn-sm"
-        data-open-waitlist="navbar_cta"
-      >
-        Accès Bêta Privée →
-      </button>
-    </div>
-  </header>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="badge-eyebrow">
-          <span class="pulse-dot"></span>
-          <span id="hero-eyebrow-text">ZÉRO CROIX ROUGE • ZÉRO CULPABILITÉ</span>
-        </div>
-
-        <h1 id="hero-title" class="hero-title">
-          Le premier plan running qui s'adapte à <span class="highlight">ta vraie vie</span> en 10 secondes.
-        </h1>
-
-        <p id="hero-subtitle" class="hero-subtitle">
-          Boulot tard, nuit de 5h ou imprévu jeudi soir ? Arrête d'abandonner ton plan ou d'empiler les séances ratées. Parle au coach IA : il rééquilibre le reste de ta semaine sans te griller.
-        </p>
-
-        <div class="hero-ctas">
-          <a href="#simulateur" class="btn btn-primary btn-lg">
-            ⚡ Tester sur un imprévu (20 sec)
-          </a>
-          <button
-            type="button"
-            class="btn btn-secondary btn-lg"
-            data-open-waitlist="hero_secondary_cta"
-          >
-            Créer mon plan avec Strava
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <!-- BARRE DE PRÉVISUALISATION DES 3 ANGLES MARKETING (Visible en local ou avec ?preview=1) -->
+    <div id="angle-switcher-bar" class="angle-switcher-bar" style="display: none">
+      <div class="angle-switcher-inner">
+        <span
+          >🧪 <strong>Mode Test Marketing :</strong> Clique pour prévisualiser les 3 accroches A/B
+          testées :</span
+        >
+        <div class="angle-pills">
+          <button type="button" class="angle-pill active" data-angle-switch="guilt">
+            Angle 1 : Zéro Culpabilité (?angle=guilt)
+          </button>
+          <button type="button" class="angle-pill" data-angle-switch="injury">
+            Angle 2 : Anti-Blessure (?angle=injury)
+          </button>
+          <button type="button" class="angle-pill" data-angle-switch="garmin">
+            Angle 3 : Vs Montre Muette (?angle=garmin)
           </button>
         </div>
-
-        <div class="hero-trust">
-          <span class="trust-item"><span class="trust-check">✓</span> Calibré sur tes 6 derniers mois Strava / Garmin</span>
-          <span class="trust-item"><span class="trust-check">✓</span> Modèle physiologique anti-surcharge</span>
-          <span class="trust-item"><span class="trust-check">✓</span> Essai gratuit sans CB</span>
-        </div>
-      </div>
-
-      <!-- VISUEL MAQUETTES DU HÉRO -->
-      <div class="hero-visual">
-        <div class="phones-stage">
-          <div class="phone-frame phone-main">
-            <div class="phone-screen">
-              <img src="./assets/maquettes/home-1.png" alt="Écran d'accueil Riles Coach IA" />
-            </div>
-          </div>
-          <div class="phone-frame phone-secondary">
-            <div class="phone-screen">
-              <img src="./assets/maquettes/calendar-3.png" alt="Détail de séance et adaptation IA" />
-            </div>
-          </div>
-          <div class="floating-badge floating-badge-bottom">
-            <span style="font-size: 20px;">💬</span>
-            <div>
-              <div style="color: var(--brand); font-size: 11.5px; font-weight: 800;">IMPRÉVU DÉTECTÉ</div>
-              <div>« J'ai que 30 min ce soir » → Semaine recalculée ✓</div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
 
-  <!-- BANDEAU COMPATIBILITÉ -->
-  <div class="compat-strip">
-    <div class="container compat-inner">
-      <span>SYNCHRONISATION NATIVE 1-CLIC AVEC :</span>
-      <span class="compat-chip">🟠 Strava (Historique 6 mois)</span>
-      <span class="compat-chip">⌚ Garmin Connect</span>
-      <span class="compat-chip">🧭 COROS</span>
-      <span class="compat-chip">❄️ Polar & Suunto</span>
-      <span class="compat-chip">🍎 Apple Santé</span>
-    </div>
-  </div>
-
-  <!-- SIMULATEUR INTERACTIF (LE COEUR DU SMOKE TEST) -->
-  <section id="simulateur" class="simulator-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge-eyebrow">SIMULATEUR INTERACTIF SANS COMPTE</div>
-        <h2 class="section-title">Clique sur un imprévu et regarde ton plan s'adapter en direct.</h2>
-        <p class="section-desc">
-          Voici ce qui se passe quand la vraie vie percute ta semaine d'entraînement. Choisis ta distance cible puis déclenche un imprévu :
-        </p>
-      </div>
-
-      <div class="simulator-card">
-        <div class="sim-steps-grid">
-          <!-- COLONNE GAUCHE : CONTRÔLES -->
-          <div>
-            <div class="sim-step-label">1. Choisis ta prépa actuelle</div>
-            <div class="goal-selector" style="grid-template-columns: repeat(4, 1fr);">
-              <button type="button" class="goal-btn" data-sim-goal="10k">
-                10 km
-                <span>Viser 45 min</span>
-              </button>
-              <button type="button" class="goal-btn active" data-sim-goal="semi">
-                Semi-Marathon
-                <span>Viser 1h45</span>
-              </button>
-              <button type="button" class="goal-btn" data-sim-goal="marathon">
-                Marathon
-                <span>Viser 3h45</span>
-              </button>
-              <button type="button" class="goal-btn" data-sim-goal="trail">
-                Trail
-                <span>35 km • 1 500m D+</span>
-              </button>
-            </div>
-
-            <div class="sim-step-label">2. Clique sur ton imprévu de Mercredi</div>
-            <div class="scenario-list">
-              <button type="button" class="scenario-btn" data-sim-scenario="initial">
-                <div class="scenario-btn-left">
-                  <span class="scenario-emoji">📅</span>
-                  <div>
-                    <span class="scenario-title">Semaine initiale prévue</span>
-                    <span class="scenario-sub">Tout va bien : 1h15 de Seuil au programme mercredi</span>
-                  </div>
-                </div>
-                <span>→</span>
-              </button>
-
-              <button type="button" class="scenario-btn active" data-sim-scenario="late_work_30m">
-                <div class="scenario-btn-left">
-                  <span class="scenario-emoji">🕒</span>
-                  <div>
-                    <span class="scenario-title">« Je sors tard du boulot, j'ai que 30 min »</span>
-                    <span class="scenario-sub">Au lieu d'1h15 prévue ce mercredi soir</span>
-                  </div>
-                </div>
-                <span>→</span>
-              </button>
-
-              <button type="button" class="scenario-btn" data-sim-scenario="bad_sleep">
-                <div class="scenario-btn-left">
-                  <span class="scenario-emoji">😴</span>
-                  <div>
-                    <span class="scenario-title">« Nuit de 5h / Jambes lourdes ce matin »</span>
-                    <span class="scenario-sub">Fatigue nerveuse haute avant une séance clé</span>
-                  </div>
-                </div>
-                <span>→</span>
-              </button>
-
-              <button type="button" class="scenario-btn" data-sim-scenario="sore_calf">
-                <div class="scenario-btn-left">
-                  <span class="scenario-emoji">🦵</span>
-                  <div>
-                    <span class="scenario-title">« Mollet un peu tendu depuis hier »</span>
-                    <span class="scenario-sub">Signal faible de surcharge tendineuse</span>
-                  </div>
-                </div>
-                <span>→</span>
-              </button>
-
-              <button type="button" class="scenario-btn" data-sim-scenario="no_thursday">
-                <div class="scenario-btn-left">
-                  <span class="scenario-emoji">🍻</span>
-                  <div>
-                    <span class="scenario-title">« Impossible de courir le jeudi soir »</span>
-                    <span class="scenario-sub">Ajout d'une règle de vie permanente</span>
-                  </div>
-                </div>
-                <span>→</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- COLONNE DROITE : SEMAINE RECALCULÉE EN DIRECT -->
-          <div class="sim-output">
-            <div class="sim-output-header">
-              <div>
-                <div style="font-size: 12px; font-weight: 800; color: var(--slate-500); text-transform: uppercase;">
-                  SEMAINE RECALCULÉE EN TEMPS RÉEL
-                </div>
-                <strong id="sim-output-goal-label" style="font-size: 18px;">Objectif Semi-Marathon (1h45)</strong>
-              </div>
-              <span id="sim-readiness-pill" class="readiness-pill">⚡ 92% • Stimulus Seuil sauvé</span>
-            </div>
-
-            <!-- CALENDRIER 7 JOURS DYNAMIQUE -->
-            <div id="sim-calendar-grid" class="week-calendar-grid"></div>
-
-            <!-- BULLE D'EXPLICATION DU COACH -->
-            <div class="coach-bubble">
-              <div class="coach-bubble-header">
-                <span>✨ ARBITRAGE DU COACH RILES IA</span>
-                <span style="color: var(--emerald-600);">0 surcharge • Forme préservée</span>
-              </div>
-              <p id="sim-coach-text" class="coach-bubble-text"></p>
-            </div>
-
-            <!-- LE BOUTON FAKE DOOR (TEST DE CONVERSION CRITIQUE) -->
-            <div class="sim-fake-door-box">
-              <div class="sim-fake-door-text">
-                <strong>Tu veux voir ce que donne Riles sur TES vraies allures ?</strong>
-                <span>Scan automatique de tes 6 derniers mois Strava / Garmin en 30 secondes.</span>
-              </div>
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-open-waitlist="simulator_bottom_cta"
-              >
-                Générer mon vrai plan sur-mesure →
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPARATIF : POURQUOI LES PLANS CLASSIQUES ÉCHOUENT -->
-  <section id="comparatif" class="comparison-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge-eyebrow">LE PROBLÈME DES PLANS ACTUELS</div>
-        <h2 class="section-title">Pourquoi 73 % des coureurs décrochent de leur plan avant le jour J ?</h2>
-        <p class="section-desc">
-          Ce n'est pas un manque de volonté : c'est parce que les plans figés ne pardonnent aucun imprévu professionnel ou familial.
-        </p>
-      </div>
-
-      <div class="comparison-grid">
-        <div class="comp-card">
-          <span class="comp-tag">Plans Apps Classiques & PDF</span>
-          <h3>Rigides & Culpabilisants</h3>
-          <ul class="comp-list">
-            <li>❌ Une séance sautée = une croix rouge anxiogène sur le calendrier.</li>
-            <li>❌ Tentation de « rattraper » la séance le lendemain → blessure.</li>
-            <li>❌ Allures calculées sur ton objectif rêvé au lieu de ton niveau réel.</li>
-          </ul>
-        </div>
-
-        <div class="comp-card">
-          <span class="comp-tag">Montres Connectées</span>
-          <h3>Boîte Noire Muette</h3>
-          <ul class="comp-list">
-            <li>❌ Impossible de lui dire « J'ai une réunion à 19h, je n'ai que 30 min ».</li>
-            <li>❌ Ignore tes jours d'indisponibilité fixes (ex. jamais le jeudi).</li>
-            <li>❌ Change tes séances au dernier matin sans visibilité sur la semaine.</li>
-          </ul>
-        </div>
-
-        <div class="comp-card featured">
-          <span class="comp-tag">Riles Coach IA Adaptatif</span>
-          <h3>Flexible, Scientifique & Humain</h3>
-          <ul class="comp-list">
-            <li>✅ <strong>Renégociation en 1 phrase :</strong> adapte la séance du jour ET rééquilibre le week-end.</li>
-            <li>✅ <strong>Calibré sur tes vraies données :</strong> allures basées sur tes 6 mois Strava + fréquence cardiaque.</li>
-            <li>✅ <strong>Check-in ressenti en 3 sec :</strong> protège tes tendons dès le moindre signal de fatigue.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERIE DES VRAIES MAQUETTES DE L'APPLICATION -->
-  <section id="apercu" class="mockups-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge-eyebrow">APERÇU DE L'APPLICATION</div>
-        <h2 class="section-title">Pensée pour te libérer la tête, pas pour t'inonder de graphiques.</h2>
-        <p class="section-desc">
-          Découvre l'interface épurée de Riles : moins de 15 secondes par jour pour garder un plan toujours aligné avec ta forme.
-        </p>
-      </div>
-
-      <div class="mockups-grid">
-        <div class="mockup-item">
-          <div class="mockup-phone-mini">
-            <div class="phone-screen">
-              <img src="./assets/maquettes/onboarding-4.png" alt="Connexion Strava et Garmin en 1 clic" />
-            </div>
-          </div>
-          <h4>1. Import 6 mois en 1 clic</h4>
-          <p>Connecte Strava, Garmin ou Coros : l'IA analyse instantanément ton volume réel et tes zones cardiaques.</p>
-        </div>
-
-        <div class="mockup-item">
-          <div class="mockup-phone-mini">
-            <div class="phone-screen">
-              <img src="./assets/maquettes/home-1.png" alt="Séance du jour et bouton Adapter avec l'IA" />
-            </div>
-          </div>
-          <h4>2. Adaptation instantanée</h4>
-          <p>Un imprévu ? Clique sur « Adapter avec l'IA » depuis ton écran d'accueil et ajuste ta séance en 10 secondes.</p>
-        </div>
-
-        <div class="mockup-item">
-          <div class="mockup-phone-mini">
-            <div class="phone-screen">
-              <img src="./assets/maquettes/home-2.png" alt="Check-in RPE post-sortie et Running Club" />
-            </div>
-          </div>
-          <h4>3. Check-in RPE & Clubs</h4>
-          <p>Après chaque sortie, note ton ressenti en 1 glissement de doigt. L'IA ajuste le seuil suivant pour protéger tes jambes.</p>
-        </div>
-
-        <div class="mockup-item">
-          <div class="mockup-phone-mini">
-            <div class="phone-screen">
-              <img src="./assets/maquettes/profil-1.png" alt="Suivi d'objectif Semi-Marathon" />
-            </div>
-          </div>
-          <h4>4. Cap clair jusqu'au jour J</h4>
-          <p>Suis ta progression réelle vers ton chrono cible sans jamais subir la pression d'un tableau Excel rigide.</p>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 44px;">
-        <button
-          type="button"
-          class="btn btn-primary btn-lg"
-          data-open-waitlist="gallery_bottom_cta"
-        >
-          Rejoindre la vague de Bêta-Testeurs (Places limitées) →
+    <!-- NAVIGATION -->
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a href="#" class="brand-logo">
+          <span class="brand-icon">P</span>
+          <span
+            >Riles
+            <small style="font-weight: 600; font-size: 12px; color: var(--brand); margin-left: 4px"
+              >BETA</small
+            ></span
+          >
+        </a>
+        <nav class="nav-links">
+          <a href="#simulateur">Tester le simulateur (20s)</a>
+          <a href="#comparatif">Pourquoi Riles ?</a>
+          <a href="#apercu">Aperçu de l'app</a>
+        </nav>
+        <button type="button" class="btn btn-primary btn-sm" data-open-waitlist="navbar_cta">
+          Accès Bêta Privée →
         </button>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;">
-      <div>
-        <strong style="color: #fff;">Riles — Coach Running IA Adaptatif</strong>
-        <p style="font-size: 13px; margin-top: 4px;">Données de santé privées, chiffrées et jamais revendues.</p>
-      </div>
-      <div>
-        <button
-          type="button"
-          class="btn btn-secondary btn-sm"
-          data-open-waitlist="footer_cta"
-        >
-          Demander un accès Bêta
-        </button>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ========================================================================
-       MODAL ONBOARDING INTERACTIF TYPE RUNNING APP (FUSION DESIGN FIGMA)
-       ======================================================================== -->
-  <div id="waitlist-modal" class="modal-backdrop" role="dialog" aria-modal="true">
-    <div class="modal-card">
-      <button type="button" id="modal-close-btn" class="modal-close" aria-label="Fermer">✕</button>
-
-      <!-- EN-TÊTE PROGRESSIF TYPE MAQUETTES (LOGO P + TON PLAN À TON RYTHME) -->
-      <div class="modal-brand-header">
-        <div class="modal-brand-left">
-          <span class="brand-icon" style="width: 32px; height: 32px; font-size: 16px; border-radius: 9px;">P</span>
-          <span style="font-weight: 800; font-size: 14px; color: var(--slate-700);">Ton plan, à ton rythme</span>
-        </div>
-        <span id="modal-step-counter" class="modal-step-counter">Étape 1 / 2</span>
-      </div>
-
-      <!-- BARRE DE PROGRESSION PAR SEGMENTS ORANGE (COMME ONBOARDING-3.PNG) -->
-      <div class="onboarding-progress-bar">
-        <div class="progress-segment active" id="prog-seg-1"></div>
-        <div class="progress-segment" id="prog-seg-2"></div>
-      </div>
-
-      <!-- FORMULAIRE NETLIFY EMBARQUÉ (TRANSMISSION SANS FAILLE DES DONNÉES) -->
-      <form
-        id="waitlist-form"
-        name="riles-beta-waitlist"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-      >
-        <input type="hidden" name="form-name" value="riles-beta-waitlist" />
-        <input type="hidden" name="bot-field" />
-        <input type="hidden" id="form-hidden-angle" name="marketing_angle" value="guilt" />
-        <input type="hidden" id="form-hidden-utm" name="utm_info" value="direct" />
-        <input type="hidden" id="form-hidden-scenario" name="simulated_scenario" value="late_work_30m" />
-        
-        <!-- Champs dynamiques synchronisés par les cartes tactiles -->
-        <input type="hidden" id="form-hidden-goal" name="goal" value="semi" />
-        <input type="hidden" id="form-hidden-app" name="current_app" value="campus" />
-        <input type="hidden" id="form-hidden-watch" name="watch_ecosystem" value="strava_garmin" />
-
-        <!-- ==================================================================
-             ÉTAPE 1 : QUIZ INTERACTIF EN CARTES (ZÉRO SELECT, 100% TACTILE)
-             ================================================================== -->
-        <div id="modal-step-1">
-          <div style="font-size: 11.5px; font-weight: 800; color: var(--brand); text-transform: uppercase; margin-bottom: 6px;">
-            ÉTAPE 1 SUR 2 • PERSONNALISATION
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge-eyebrow">
+            <span class="pulse-dot"></span>
+            <span id="hero-eyebrow-text">ZÉRO CROIX ROUGE • ZÉRO CULPABILITÉ</span>
           </div>
-          <h3 class="modal-step-title">Quel est ton prochain défi running ?</h3>
-          <p class="modal-step-desc">
-            Sélectionne ton objectif pour que l'IA calibre tes zones d'allure et ton plan.
+
+          <h1 id="hero-title" class="hero-title">
+            Le premier plan running qui s'adapte à <span class="highlight">ta vraie vie</span> en 10
+            secondes.
+          </h1>
+
+          <p id="hero-subtitle" class="hero-subtitle">
+            Boulot tard, nuit de 5h ou imprévu jeudi soir ? Arrête d'abandonner ton plan ou
+            d'empiler les séances ratées. Parle au coach IA : il rééquilibre le reste de ta semaine
+            sans te griller.
           </p>
 
-          <!-- 1. GRILLE D'OBJECTIFS (AVEC RETOUR DU TRAIL & REPRISE) -->
-          <div class="card-options-grid">
-            <button type="button" class="choice-card active" data-choice-goal="semi">
-              <div class="choice-card-icon">🏅</div>
-              <div class="choice-card-body">
-                <span class="choice-card-title">Semi-Marathon</span>
-                <span class="choice-card-sub">21,1 km • Chrono ou 1er défi</span>
-              </div>
-              <span class="choice-check">✓</span>
-            </button>
-
-            <button type="button" class="choice-card" data-choice-goal="marathon">
-              <div class="choice-card-icon">🏃</div>
-              <div class="choice-card-body">
-                <span class="choice-card-title">Marathon</span>
-                <span class="choice-card-sub">42,195 km • Le graal d'endurance</span>
-              </div>
-              <span class="choice-check">✓</span>
-            </button>
-
-            <button type="button" class="choice-card" data-choice-goal="10k">
-              <div class="choice-card-icon">⚡</div>
-              <div class="choice-card-body">
-                <span class="choice-card-title">10 km / 5 km</span>
-                <span class="choice-card-sub">Vitesse, VMA & allures</span>
-              </div>
-              <span class="choice-check">✓</span>
-            </button>
-
-            <button type="button" class="choice-card" data-choice-goal="trail">
-              <div class="choice-card-icon">🌲</div>
-              <div class="choice-card-body">
-                <span class="choice-card-title">Trail & Nature</span>
-                <span class="choice-card-sub">Dénivelé, D+ & gestion d'allure</span>
-              </div>
-              <span class="choice-check">✓</span>
-            </button>
-
-            <button type="button" class="choice-card choice-card-full" data-choice-goal="reprise">
-              <div class="choice-card-icon">🛡️</div>
-              <div class="choice-card-body">
-                <span class="choice-card-title">Reprise / Zéro Blessure</span>
-                <span class="choice-card-sub">Régularité, reprise progressive & protection des tendons</span>
-              </div>
-              <span class="choice-check">✓</span>
+          <div class="hero-ctas">
+            <a href="#simulateur" class="btn btn-primary btn-lg">
+              ⚡ Tester sur un imprévu (20 sec)
+            </a>
+            <button
+              type="button"
+              class="btn btn-secondary btn-lg"
+              data-open-waitlist="hero_secondary_cta"
+            >
+              Créer mon plan avec Strava
             </button>
           </div>
 
-          <!-- 2. COMMENT T'ENTRAÎNES-TU AUJOURD'HUI ? (LISTE DÉROULANTE ÉPURÉE) -->
-          <div style="margin-top: 20px;">
-            <label class="modal-section-label" for="form-current-app">Comment prépares-tu tes courses aujourd'hui ?</label>
-            <div style="position: relative;">
-              <select id="form-current-app" class="custom-modern-select">
-                <option value="campus" selected>🧢 Campus Coach</option>
-                <option value="runna">🏃‍♂️ Runna</option>
-                <option value="runmotion">🏔️ RunMotion Coach</option>
-                <option value="kiprun">👟 Kiprun Pacer (Decathlon)</option>
-                <option value="garmin_coach">⌚ Garmin Coach / Suggestions de la montre</option>
-                <option value="pdf_excel">📄 Plan PDF / Tableau Excel</option>
-                <option value="club_coach">🎽 Entraîneur de Club / Nolio</option>
-                <option value="feeling">🎯 Au feeling (sans plan fixe)</option>
-                <option value="autre">✨ Autre application ou méthode</option>
-              </select>
-              <div id="form-other-app-wrapper" style="display: none; margin-top: 8px;">
-                <input
-                  type="text"
-                  id="form-other-app-text"
-                  name="custom_app_text"
-                  class="form-input"
-                  placeholder="Précise ton application ou méthode (ex: Nolio, Strava gratuit...)"
-                  style="font-size: 13.5px; padding: 10px 14px;"
+          <div class="hero-trust">
+            <span class="trust-item"
+              ><span class="trust-check">✓</span> Calibré sur tes 6 derniers mois Strava /
+              Garmin</span
+            >
+            <span class="trust-item"
+              ><span class="trust-check">✓</span> Modèle physiologique anti-surcharge</span
+            >
+            <span class="trust-item"><span class="trust-check">✓</span> Essai gratuit sans CB</span>
+          </div>
+        </div>
+
+        <!-- VISUEL MAQUETTES DU HÉRO -->
+        <div class="hero-visual">
+          <div class="phones-stage">
+            <div class="phone-frame phone-main">
+              <div class="phone-screen">
+                <img src="./assets/maquettes/home-1.png" alt="Écran d'accueil Riles Coach IA" />
+              </div>
+            </div>
+            <div class="phone-frame phone-secondary">
+              <div class="phone-screen">
+                <img
+                  src="./assets/maquettes/calendar-3.png"
+                  alt="Détail de séance et adaptation IA"
                 />
               </div>
             </div>
+            <div class="floating-badge floating-badge-bottom">
+              <span style="font-size: 20px">💬</span>
+              <div>
+                <div style="color: var(--brand); font-size: 11.5px; font-weight: 800">
+                  IMPRÉVU DÉTECTÉ
+                </div>
+                <div>« J'ai que 30 min ce soir » → Semaine recalculée ✓</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANDEAU COMPATIBILITÉ -->
+    <div class="compat-strip">
+      <div class="container compat-inner">
+        <span>SYNCHRONISATION NATIVE 1-CLIC AVEC :</span>
+        <span class="compat-chip">🟠 Strava (Historique 6 mois)</span>
+        <span class="compat-chip">⌚ Garmin Connect</span>
+        <span class="compat-chip">🧭 COROS</span>
+        <span class="compat-chip">❄️ Polar & Suunto</span>
+        <span class="compat-chip">🍎 Apple Santé</span>
+      </div>
+    </div>
+
+    <!-- SIMULATEUR INTERACTIF (LE COEUR DU SMOKE TEST) -->
+    <section id="simulateur" class="simulator-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-eyebrow">SIMULATEUR INTERACTIF SANS COMPTE</div>
+          <h2 class="section-title">
+            Clique sur un imprévu et regarde ton plan s'adapter en direct.
+          </h2>
+          <p class="section-desc">
+            Voici ce qui se passe quand la vraie vie percute ta semaine d'entraînement. Choisis ta
+            distance cible puis déclenche un imprévu :
+          </p>
+        </div>
+
+        <div class="simulator-card">
+          <div class="sim-steps-grid">
+            <!-- COLONNE GAUCHE : CONTRÔLES -->
+            <div>
+              <div class="sim-step-label">1. Choisis ta prépa actuelle</div>
+              <div class="goal-selector" style="grid-template-columns: repeat(4, 1fr)">
+                <button type="button" class="goal-btn" data-sim-goal="10k">
+                  10 km
+                  <span>Viser 45 min</span>
+                </button>
+                <button type="button" class="goal-btn active" data-sim-goal="semi">
+                  Semi-Marathon
+                  <span>Viser 1h45</span>
+                </button>
+                <button type="button" class="goal-btn" data-sim-goal="marathon">
+                  Marathon
+                  <span>Viser 3h45</span>
+                </button>
+                <button type="button" class="goal-btn" data-sim-goal="trail">
+                  Trail
+                  <span>35 km • 1 500m D+</span>
+                </button>
+              </div>
+
+              <div class="sim-step-label">2. Clique sur ton imprévu de Mercredi</div>
+              <div class="scenario-list">
+                <button type="button" class="scenario-btn" data-sim-scenario="initial">
+                  <div class="scenario-btn-left">
+                    <span class="scenario-emoji">📅</span>
+                    <div>
+                      <span class="scenario-title">Semaine initiale prévue</span>
+                      <span class="scenario-sub"
+                        >Tout va bien : 1h15 de Seuil au programme mercredi</span
+                      >
+                    </div>
+                  </div>
+                  <span>→</span>
+                </button>
+
+                <button type="button" class="scenario-btn active" data-sim-scenario="late_work_30m">
+                  <div class="scenario-btn-left">
+                    <span class="scenario-emoji">🕒</span>
+                    <div>
+                      <span class="scenario-title"
+                        >« Je sors tard du boulot, j'ai que 30 min »</span
+                      >
+                      <span class="scenario-sub">Au lieu d'1h15 prévue ce mercredi soir</span>
+                    </div>
+                  </div>
+                  <span>→</span>
+                </button>
+
+                <button type="button" class="scenario-btn" data-sim-scenario="bad_sleep">
+                  <div class="scenario-btn-left">
+                    <span class="scenario-emoji">😴</span>
+                    <div>
+                      <span class="scenario-title">« Nuit de 5h / Jambes lourdes ce matin »</span>
+                      <span class="scenario-sub">Fatigue nerveuse haute avant une séance clé</span>
+                    </div>
+                  </div>
+                  <span>→</span>
+                </button>
+
+                <button type="button" class="scenario-btn" data-sim-scenario="sore_calf">
+                  <div class="scenario-btn-left">
+                    <span class="scenario-emoji">🦵</span>
+                    <div>
+                      <span class="scenario-title">« Mollet un peu tendu depuis hier »</span>
+                      <span class="scenario-sub">Signal faible de surcharge tendineuse</span>
+                    </div>
+                  </div>
+                  <span>→</span>
+                </button>
+
+                <button type="button" class="scenario-btn" data-sim-scenario="no_thursday">
+                  <div class="scenario-btn-left">
+                    <span class="scenario-emoji">🍻</span>
+                    <div>
+                      <span class="scenario-title">« Impossible de courir le jeudi soir »</span>
+                      <span class="scenario-sub">Ajout d'une règle de vie permanente</span>
+                    </div>
+                  </div>
+                  <span>→</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- COLONNE DROITE : SEMAINE RECALCULÉE EN DIRECT -->
+            <div class="sim-output">
+              <div class="sim-output-header">
+                <div>
+                  <div
+                    style="
+                      font-size: 12px;
+                      font-weight: 800;
+                      color: var(--slate-500);
+                      text-transform: uppercase;
+                    "
+                  >
+                    SEMAINE RECALCULÉE EN TEMPS RÉEL
+                  </div>
+                  <strong id="sim-output-goal-label" style="font-size: 18px"
+                    >Objectif Semi-Marathon (1h45)</strong
+                  >
+                </div>
+                <span id="sim-readiness-pill" class="readiness-pill"
+                  >⚡ 92% • Stimulus Seuil sauvé</span
+                >
+              </div>
+
+              <!-- CALENDRIER 7 JOURS DYNAMIQUE -->
+              <div id="sim-calendar-grid" class="week-calendar-grid"></div>
+
+              <!-- BULLE D'EXPLICATION DU COACH -->
+              <div class="coach-bubble">
+                <div class="coach-bubble-header">
+                  <span>✨ ARBITRAGE DU COACH RILES IA</span>
+                  <span style="color: var(--emerald-600)">0 surcharge • Forme préservée</span>
+                </div>
+                <p id="sim-coach-text" class="coach-bubble-text"></p>
+              </div>
+
+              <!-- LE BOUTON FAKE DOOR (TEST DE CONVERSION CRITIQUE) -->
+              <div class="sim-fake-door-box">
+                <div class="sim-fake-door-text">
+                  <strong>Tu veux voir ce que donne Riles sur TES vraies allures ?</strong>
+                  <span
+                    >Scan automatique de tes 6 derniers mois Strava / Garmin en 30 secondes.</span
+                  >
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-open-waitlist="simulator_bottom_cta"
+                >
+                  Générer mon vrai plan sur-mesure →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARATIF : POURQUOI LES PLANS CLASSIQUES ÉCHOUENT -->
+    <section id="comparatif" class="comparison-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-eyebrow">LE PROBLÈME DES PLANS ACTUELS</div>
+          <h2 class="section-title">
+            Pourquoi 73 % des coureurs décrochent de leur plan avant le jour J ?
+          </h2>
+          <p class="section-desc">
+            Ce n'est pas un manque de volonté : c'est parce que les plans figés ne pardonnent aucun
+            imprévu professionnel ou familial.
+          </p>
+        </div>
+
+        <div class="comparison-grid">
+          <div class="comp-card">
+            <span class="comp-tag">Plans Apps Classiques & PDF</span>
+            <h3>Rigides & Culpabilisants</h3>
+            <ul class="comp-list">
+              <li>❌ Une séance sautée = une croix rouge anxiogène sur le calendrier.</li>
+              <li>❌ Tentation de « rattraper » la séance le lendemain → blessure.</li>
+              <li>❌ Allures calculées sur ton objectif rêvé au lieu de ton niveau réel.</li>
+            </ul>
           </div>
 
-          <!-- 3. ÉCOSYSTÈME MONTRE / GPS MATÉRIEL (LISTE DÉROULANTE ÉPURÉE) -->
-          <div style="margin-top: 16px;">
-            <label class="modal-section-label" for="form-watch">Quelle montre ou GPS utilises-tu pour courir ?</label>
-            <div style="position: relative;">
-              <select id="form-watch" class="custom-modern-select">
-                <option value="garmin" selected>⌚ Garmin (Forerunner, Fenix, Epix...)</option>
-                <option value="apple_watch">🍎 Apple Watch (Ultra, Series, SE)</option>
-                <option value="coros">🧭 COROS (Pace, Apex, Vertix)</option>
-                <option value="polar">❄️ Polar (Pacer, Vantage, Grit...)</option>
-                <option value="suunto">⛰️ Suunto (Race, Peak, Vertical...)</option>
-                <option value="phone_only">📱 Téléphone seul en poche (Strava / Nike)</option>
-              </select>
+          <div class="comp-card">
+            <span class="comp-tag">Montres Connectées</span>
+            <h3>Boîte Noire Muette</h3>
+            <ul class="comp-list">
+              <li>❌ Impossible de lui dire « J'ai une réunion à 19h, je n'ai que 30 min ».</li>
+              <li>❌ Ignore tes jours d'indisponibilité fixes (ex. jamais le jeudi).</li>
+              <li>❌ Change tes séances au dernier matin sans visibilité sur la semaine.</li>
+            </ul>
+          </div>
+
+          <div class="comp-card featured">
+            <span class="comp-tag">Riles Coach IA Adaptatif</span>
+            <h3>Flexible, Scientifique & Humain</h3>
+            <ul class="comp-list">
+              <li>
+                ✅ <strong>Renégociation en 1 phrase :</strong> adapte la séance du jour ET
+                rééquilibre le week-end.
+              </li>
+              <li>
+                ✅ <strong>Calibré sur tes vraies données :</strong> allures basées sur tes 6 mois
+                Strava + fréquence cardiaque.
+              </li>
+              <li>
+                ✅ <strong>Check-in ressenti en 3 sec :</strong> protège tes tendons dès le moindre
+                signal de fatigue.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE DES VRAIES MAQUETTES DE L'APPLICATION -->
+    <section id="apercu" class="mockups-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-eyebrow">APERÇU DE L'APPLICATION</div>
+          <h2 class="section-title">
+            Pensée pour te libérer la tête, pas pour t'inonder de graphiques.
+          </h2>
+          <p class="section-desc">
+            Découvre l'interface épurée de Riles : moins de 15 secondes par jour pour garder un plan
+            toujours aligné avec ta forme.
+          </p>
+        </div>
+
+        <div class="mockups-grid">
+          <div class="mockup-item">
+            <div class="mockup-phone-mini">
+              <div class="phone-screen">
+                <img
+                  src="./assets/maquettes/onboarding-4.png"
+                  alt="Connexion Strava et Garmin en 1 clic"
+                />
+              </div>
             </div>
-            <p style="font-size: 11.5px; color: var(--slate-500); margin-top: 6px;">
-              🟠 Synchronisation automatique avec ton historique <strong>Strava</strong> incluse dans la Bêta.
+            <h4>1. Import 6 mois en 1 clic</h4>
+            <p>
+              Connecte Strava, Garmin ou Coros : l'IA analyse instantanément ton volume réel et tes
+              zones cardiaques.
             </p>
           </div>
 
-          <button type="button" id="btn-next-step" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 22px;">
-            Continuer vers mon accès Bêta →
-          </button>
+          <div class="mockup-item">
+            <div class="mockup-phone-mini">
+              <div class="phone-screen">
+                <img
+                  src="./assets/maquettes/home-1.png"
+                  alt="Séance du jour et bouton Adapter avec l'IA"
+                />
+              </div>
+            </div>
+            <h4>2. Adaptation instantanée</h4>
+            <p>
+              Un imprévu ? Clique sur « Adapter avec l'IA » depuis ton écran d'accueil et ajuste ta
+              séance en 10 secondes.
+            </p>
+          </div>
+
+          <div class="mockup-item">
+            <div class="mockup-phone-mini">
+              <div class="phone-screen">
+                <img
+                  src="./assets/maquettes/home-2.png"
+                  alt="Check-in RPE post-sortie et Running Club"
+                />
+              </div>
+            </div>
+            <h4>3. Check-in RPE & Clubs</h4>
+            <p>
+              Après chaque sortie, note ton ressenti en 1 glissement de doigt. L'IA ajuste le seuil
+              suivant pour protéger tes jambes.
+            </p>
+          </div>
+
+          <div class="mockup-item">
+            <div class="mockup-phone-mini">
+              <div class="phone-screen">
+                <img src="./assets/maquettes/profil-1.png" alt="Suivi d'objectif Semi-Marathon" />
+              </div>
+            </div>
+            <h4>4. Cap clair jusqu'au jour J</h4>
+            <p>
+              Suis ta progression réelle vers ton chrono cible sans jamais subir la pression d'un
+              tableau Excel rigide.
+            </p>
+          </div>
         </div>
 
-        <!-- ==================================================================
+        <div style="text-align: center; margin-top: 44px">
+          <button
+            type="button"
+            class="btn btn-primary btn-lg"
+            data-open-waitlist="gallery_bottom_cta"
+          >
+            Rejoindre la vague de Bêta-Testeurs (Places limitées) →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div
+        class="container"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+        "
+      >
+        <div>
+          <strong style="color: #fff">Riles — Coach Running IA Adaptatif</strong>
+          <p style="font-size: 13px; margin-top: 4px">
+            Données de santé privées, chiffrées et jamais revendues.
+          </p>
+        </div>
+        <div>
+          <button type="button" class="btn btn-secondary btn-sm" data-open-waitlist="footer_cta">
+            Demander un accès Bêta
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========================================================================
+       MODAL ONBOARDING INTERACTIF TYPE RUNNING APP (FUSION DESIGN FIGMA)
+       ======================================================================== -->
+    <div id="waitlist-modal" class="modal-backdrop" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <button type="button" id="modal-close-btn" class="modal-close" aria-label="Fermer">
+          ✕
+        </button>
+
+        <!-- EN-TÊTE PROGRESSIF TYPE MAQUETTES (LOGO P + TON PLAN À TON RYTHME) -->
+        <div class="modal-brand-header">
+          <div class="modal-brand-left">
+            <span
+              class="brand-icon"
+              style="width: 32px; height: 32px; font-size: 16px; border-radius: 9px"
+              >P</span
+            >
+            <span style="font-weight: 800; font-size: 14px; color: var(--slate-700)"
+              >Ton plan, à ton rythme</span
+            >
+          </div>
+          <span id="modal-step-counter" class="modal-step-counter">Étape 1 / 2</span>
+        </div>
+
+        <!-- BARRE DE PROGRESSION PAR SEGMENTS ORANGE (COMME ONBOARDING-3.PNG) -->
+        <div class="onboarding-progress-bar">
+          <div class="progress-segment active" id="prog-seg-1"></div>
+          <div class="progress-segment" id="prog-seg-2"></div>
+        </div>
+
+        <!-- FORMULAIRE NETLIFY EMBARQUÉ (TRANSMISSION SANS FAILLE DES DONNÉES) -->
+        <form
+          id="waitlist-form"
+          name="riles-beta-waitlist"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="riles-beta-waitlist" />
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" id="form-hidden-angle" name="marketing_angle" value="guilt" />
+          <input type="hidden" id="form-hidden-utm" name="utm_info" value="direct" />
+          <input
+            type="hidden"
+            id="form-hidden-scenario"
+            name="simulated_scenario"
+            value="late_work_30m"
+          />
+
+          <!-- Champs dynamiques synchronisés par les cartes tactiles -->
+          <input type="hidden" id="form-hidden-goal" name="goal" value="semi" />
+          <input type="hidden" id="form-hidden-app" name="current_app" value="campus" />
+          <input
+            type="hidden"
+            id="form-hidden-watch"
+            name="watch_ecosystem"
+            value="strava_garmin"
+          />
+
+          <!-- ==================================================================
+             ÉTAPE 1 : QUIZ INTERACTIF EN CARTES (ZÉRO SELECT, 100% TACTILE)
+             ================================================================== -->
+          <div id="modal-step-1">
+            <div
+              style="
+                font-size: 11.5px;
+                font-weight: 800;
+                color: var(--brand);
+                text-transform: uppercase;
+                margin-bottom: 6px;
+              "
+            >
+              ÉTAPE 1 SUR 2 • PERSONNALISATION
+            </div>
+            <h3 class="modal-step-title">Quel est ton prochain défi running ?</h3>
+            <p class="modal-step-desc">
+              Sélectionne ton objectif pour que l'IA calibre tes zones d'allure et ton plan.
+            </p>
+
+            <!-- 1. GRILLE D'OBJECTIFS (AVEC RETOUR DU TRAIL & REPRISE) -->
+            <div class="card-options-grid">
+              <button type="button" class="choice-card active" data-choice-goal="semi">
+                <div class="choice-card-icon">🏅</div>
+                <div class="choice-card-body">
+                  <span class="choice-card-title">Semi-Marathon</span>
+                  <span class="choice-card-sub">21,1 km • Chrono ou 1er défi</span>
+                </div>
+                <span class="choice-check">✓</span>
+              </button>
+
+              <button type="button" class="choice-card" data-choice-goal="marathon">
+                <div class="choice-card-icon">🏃</div>
+                <div class="choice-card-body">
+                  <span class="choice-card-title">Marathon</span>
+                  <span class="choice-card-sub">42,195 km • Le graal d'endurance</span>
+                </div>
+                <span class="choice-check">✓</span>
+              </button>
+
+              <button type="button" class="choice-card" data-choice-goal="10k">
+                <div class="choice-card-icon">⚡</div>
+                <div class="choice-card-body">
+                  <span class="choice-card-title">10 km / 5 km</span>
+                  <span class="choice-card-sub">Vitesse, VMA & allures</span>
+                </div>
+                <span class="choice-check">✓</span>
+              </button>
+
+              <button type="button" class="choice-card" data-choice-goal="trail">
+                <div class="choice-card-icon">🌲</div>
+                <div class="choice-card-body">
+                  <span class="choice-card-title">Trail & Nature</span>
+                  <span class="choice-card-sub">Dénivelé, D+ & gestion d'allure</span>
+                </div>
+                <span class="choice-check">✓</span>
+              </button>
+
+              <button type="button" class="choice-card choice-card-full" data-choice-goal="reprise">
+                <div class="choice-card-icon">🛡️</div>
+                <div class="choice-card-body">
+                  <span class="choice-card-title">Reprise / Zéro Blessure</span>
+                  <span class="choice-card-sub"
+                    >Régularité, reprise progressive & protection des tendons</span
+                  >
+                </div>
+                <span class="choice-check">✓</span>
+              </button>
+            </div>
+
+            <!-- 2. COMMENT T'ENTRAÎNES-TU AUJOURD'HUI ? (LISTE DÉROULANTE ÉPURÉE) -->
+            <div style="margin-top: 20px">
+              <label class="modal-section-label" for="form-current-app"
+                >Comment prépares-tu tes courses aujourd'hui ?</label
+              >
+              <div style="position: relative">
+                <select id="form-current-app" class="custom-modern-select">
+                  <option value="campus" selected>🧢 Campus Coach</option>
+                  <option value="runna">🏃‍♂️ Runna</option>
+                  <option value="runmotion">🏔️ RunMotion Coach</option>
+                  <option value="kiprun">👟 Kiprun Pacer (Decathlon)</option>
+                  <option value="garmin_coach">⌚ Garmin Coach / Suggestions de la montre</option>
+                  <option value="pdf_excel">📄 Plan PDF / Tableau Excel</option>
+                  <option value="club_coach">🎽 Entraîneur de Club / Nolio</option>
+                  <option value="feeling">🎯 Au feeling (sans plan fixe)</option>
+                  <option value="autre">✨ Autre application ou méthode</option>
+                </select>
+                <div id="form-other-app-wrapper" style="display: none; margin-top: 8px">
+                  <input
+                    type="text"
+                    id="form-other-app-text"
+                    name="custom_app_text"
+                    class="form-input"
+                    placeholder="Précise ton application ou méthode (ex: Nolio, Strava gratuit...)"
+                    style="font-size: 13.5px; padding: 10px 14px"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. ÉCOSYSTÈME MONTRE / GPS MATÉRIEL (LISTE DÉROULANTE ÉPURÉE) -->
+            <div style="margin-top: 16px">
+              <label class="modal-section-label" for="form-watch"
+                >Quelle montre ou GPS utilises-tu pour courir ?</label
+              >
+              <div style="position: relative">
+                <select id="form-watch" class="custom-modern-select">
+                  <option value="garmin" selected>⌚ Garmin (Forerunner, Fenix, Epix...)</option>
+                  <option value="apple_watch">🍎 Apple Watch (Ultra, Series, SE)</option>
+                  <option value="coros">🧭 COROS (Pace, Apex, Vertix)</option>
+                  <option value="polar">❄️ Polar (Pacer, Vantage, Grit...)</option>
+                  <option value="suunto">⛰️ Suunto (Race, Peak, Vertical...)</option>
+                  <option value="phone_only">📱 Téléphone seul en poche (Strava / Nike)</option>
+                </select>
+              </div>
+              <p style="font-size: 11.5px; color: var(--slate-500); margin-top: 6px">
+                🟠 Synchronisation automatique avec ton historique <strong>Strava</strong> incluse
+                dans la Bêta.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              id="btn-next-step"
+              class="btn btn-primary btn-lg"
+              style="width: 100%; margin-top: 22px"
+            >
+              Continuer vers mon accès Bêta →
+            </button>
+          </div>
+
+          <!-- ==================================================================
              ÉTAPE 2 : ACCÈS BÊTA & EMAIL QUALIFIÉ
              ================================================================== -->
-        <div id="modal-step-2" style="display: none;">
-          <button type="button" id="btn-back-step" class="btn-step-back">
-            ← Modifier mon profil
-          </button>
+          <div id="modal-step-2" style="display: none">
+            <button type="button" id="btn-back-step" class="btn-step-back">
+              ← Modifier mon profil
+            </button>
 
-          <!-- BADGE DE SYNTHÈSE DE PROFIL CRÉÉ -->
-          <div class="summary-pill-banner">
-            <span style="font-size: 16px;">✨</span>
-            <div>
-              <div style="font-size: 11px; font-weight: 800; color: var(--emerald-600); text-transform: uppercase;">
-                PROFIL ENTRAÎNEMENT PRÊT
-              </div>
-              <div id="summary-pill-text" style="font-size: 13.5px; font-weight: 700; color: var(--slate-800);">
-                Objectif Semi-Marathon • Écosystème Garmin + Strava
+            <!-- BADGE DE SYNTHÈSE DE PROFIL CRÉÉ -->
+            <div class="summary-pill-banner">
+              <span style="font-size: 16px">✨</span>
+              <div>
+                <div
+                  style="
+                    font-size: 11px;
+                    font-weight: 800;
+                    color: var(--emerald-600);
+                    text-transform: uppercase;
+                  "
+                >
+                  PROFIL ENTRAÎNEMENT PRÊT
+                </div>
+                <div
+                  id="summary-pill-text"
+                  style="font-size: 13.5px; font-weight: 700; color: var(--slate-800)"
+                >
+                  Objectif Semi-Marathon • Écosystème Garmin + Strava
+                </div>
               </div>
             </div>
-          </div>
 
-          <h3 class="modal-step-title" style="margin-top: 16px;">
-            Où envoyer ton accès Bêta prioritaire ?
-          </h3>
-          <p class="modal-step-desc">
-            Nous ouvrons la Bêta privée par vagues de 50 coureurs pour assurer un suivi individualisé par l'IA.
-          </p>
+            <h3 class="modal-step-title" style="margin-top: 16px">
+              Où envoyer ton accès Bêta prioritaire ?
+            </h3>
+            <p class="modal-step-desc">
+              Nous ouvrons la Bêta privée par vagues de 50 coureurs pour assurer un suivi
+              individualisé par l'IA.
+            </p>
 
-          <div class="form-group" style="margin-top: 20px;">
-            <label class="form-label" for="form-email">Ton adresse email *</label>
-            <div class="input-with-icon">
-              <span class="input-icon">✉️</span>
-              <input
-                type="email"
-                id="form-email"
-                name="email"
-                class="form-input form-input-lg"
-                placeholder="camille.runner@gmail.com"
-                required
-              />
+            <div class="form-group" style="margin-top: 20px">
+              <label class="form-label" for="form-email">Ton adresse email *</label>
+              <div class="input-with-icon">
+                <span class="input-icon">✉️</span>
+                <input
+                  type="email"
+                  id="form-email"
+                  name="email"
+                  class="form-input form-input-lg"
+                  placeholder="camille.runner@gmail.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              id="btn-submit-waitlist"
+              class="btn btn-primary btn-lg"
+              style="width: 100%; margin-top: 14px"
+            >
+              Réserver mon Dossard Bêta (#142) →
+            </button>
+
+            <div class="form-trust-footer">
+              <span>🔒 Données privées chiffrées</span>
+              <span>•</span>
+              <span>Zéro publicité</span>
+              <span>•</span>
+              <span>Désinscription en 1 clic</span>
             </div>
           </div>
+        </form>
 
-          <button type="submit" id="btn-submit-waitlist" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 14px;">
-            Réserver mon Dossard Bêta (#142) →
-          </button>
-
-          <div class="form-trust-footer">
-            <span>🔒 Données privées chiffrées</span>
-            <span>•</span>
-            <span>Zéro publicité</span>
-            <span>•</span>
-            <span>Désinscription en 1 clic</span>
-          </div>
-        </div>
-      </form>
-
-      <!-- ==================================================================
+        <!-- ==================================================================
            ÉTAPE 3 : ÉCRAN DE SUCCÈS — LE DOSSARD DIGITAL BÊTA & OFFRE FONDATEUR
            ================================================================== -->
-      <div id="modal-step-3" style="display: none;">
-        <!-- VRAI DOSSARD DIGITAL ATHLÉTIQUE (RACE BIB) -->
-        <div class="race-bib-ticket">
-          <div class="bib-header">
-            <div class="bib-logo">
-              <span class="brand-icon" style="width: 24px; height: 24px; font-size: 13px; border-radius: 6px;">P</span>
-              <span>RILES ATHLETICS • VAGUE BÊTA 2026</span>
+        <div id="modal-step-3" style="display: none">
+          <!-- VRAI DOSSARD DIGITAL ATHLÉTIQUE (RACE BIB) -->
+          <div class="race-bib-ticket">
+            <div class="bib-header">
+              <div class="bib-logo">
+                <span
+                  class="brand-icon"
+                  style="width: 24px; height: 24px; font-size: 13px; border-radius: 6px"
+                  >P</span
+                >
+                <span>RILES ATHLETICS • VAGUE BÊTA 2026</span>
+              </div>
+              <span class="bib-tag">OFFICIEL</span>
             </div>
-            <span class="bib-tag">OFFICIEL</span>
+
+            <div class="bib-body">
+              <div class="bib-number">#0142</div>
+              <div class="bib-category" id="bib-category-text">CATÉGORIE : SEMI-MARATHON</div>
+              <div class="bib-athlete" id="bib-athlete-text">
+                ATHLÈTE : camille.runner@gmail.com
+              </div>
+            </div>
+
+            <div class="bib-footer">
+              <span class="bib-stamp">✓ ACCÈS BÊTA VALIDÉ</span>
+              <div class="bib-barcode">|||| | ||||| || |||||| | |||</div>
+            </div>
           </div>
 
-          <div class="bib-body">
-            <div class="bib-number">#0142</div>
-            <div class="bib-category" id="bib-category-text">CATÉGORIE : SEMI-MARATHON</div>
-            <div class="bib-athlete" id="bib-athlete-text">ATHLÈTE : camille.runner@gmail.com</div>
-          </div>
+          <!-- CARTE OFFRE MEMBRE FONDATEUR (TEST DE PRIX / SKIN IN THE GAME) -->
+          <div class="founder-offer-card">
+            <div class="founder-offer-top">
+              <span class="founder-fire-badge">🔥 PRIVILÈGE PREMIER PELOTON</span>
+              <span class="founder-spots">Places restantes : 38 / 100</span>
+            </div>
 
-          <div class="bib-footer">
-            <span class="bib-stamp">✓ ACCÈS BÊTA VALIDÉ</span>
-            <div class="bib-barcode">|||| | ||||| || |||||| | |||</div>
-          </div>
-        </div>
-
-        <!-- CARTE OFFRE MEMBRE FONDATEUR (TEST DE PRIX / SKIN IN THE GAME) -->
-        <div class="founder-offer-card">
-          <div class="founder-offer-top">
-            <span class="founder-fire-badge">🔥 PRIVILÈGE PREMIER PELOTON</span>
-            <span class="founder-spots">Places restantes : 38 / 100</span>
-          </div>
-
-          <h4 style="font-size: 17px; font-weight: 850; color: var(--slate-900); margin-bottom: 6px;">
-            Bloquer -50% à vie sur l'abonnement Pro
-          </h4>
-          <p style="font-size: 13px; color: var(--slate-600); margin-bottom: 14px;">
-            Après tes 14 jours d'essai gratuit, garde ton tarif Membre Fondateur à <strong>49 €/an au lieu de 99 €/an</strong> sans engagement (0 € à payer aujourd'hui).
-          </p>
-
-          <button type="button" id="claim-founder-btn" class="btn btn-primary" style="width: 100%;">
-            Oui, bloquer mon tarif Membre Fondateur (-50%)
-          </button>
-        </div>
-
-        <!-- COUPE-FILE VIRAL PARTAGEABLE -->
-        <div class="share-box">
-          <div style="font-weight: 800; font-size: 13.5px; color: var(--slate-800); margin-bottom: 4px;">
-            🚀 Fais monter ton dossard dans la file
-          </div>
-          <p style="font-size: 12.5px; color: var(--slate-600); margin-bottom: 12px;">
-            Partage ton lien unique : dès qu'un pote teste le simulateur, tu gagnes 50 places pour la prochaine vague.
-          </p>
-
-          <div style="display: flex; gap: 8px;">
-            <input
-              type="text"
-              id="referral-link-input"
-              class="form-input"
-              style="font-size: 12.5px; padding: 10px 12px;"
-              readonly
-            />
-            <button type="button" id="copy-referral-btn" class="btn btn-secondary btn-sm" style="flex-shrink: 0;">
-              Copier
-            </button>
-            <a
-              id="whatsapp-share-btn"
-              href="#"
-              target="_blank"
-              class="btn btn-secondary btn-sm"
-              style="flex-shrink: 0; background: #25D366; color: #fff; border-color: #25D366;"
+            <h4
+              style="font-size: 17px; font-weight: 850; color: var(--slate-900); margin-bottom: 6px"
             >
-              WhatsApp
-            </a>
+              Bloquer -50% à vie sur l'abonnement Pro
+            </h4>
+            <p style="font-size: 13px; color: var(--slate-600); margin-bottom: 14px">
+              Après tes 14 jours d'essai gratuit, garde ton tarif Membre Fondateur à
+              <strong>49 €/an au lieu de 99 €/an</strong> sans engagement (0 € à payer aujourd'hui).
+            </p>
+
+            <button
+              type="button"
+              id="claim-founder-btn"
+              class="btn btn-primary"
+              style="width: 100%"
+            >
+              Oui, bloquer mon tarif Membre Fondateur (-50%)
+            </button>
+          </div>
+
+          <!-- COUPE-FILE VIRAL PARTAGEABLE -->
+          <div class="share-box">
+            <div
+              style="
+                font-weight: 800;
+                font-size: 13.5px;
+                color: var(--slate-800);
+                margin-bottom: 4px;
+              "
+            >
+              🚀 Fais monter ton dossard dans la file
+            </div>
+            <p style="font-size: 12.5px; color: var(--slate-600); margin-bottom: 12px">
+              Partage ton lien unique : dès qu'un pote teste le simulateur, tu gagnes 50 places pour
+              la prochaine vague.
+            </p>
+
+            <div style="display: flex; gap: 8px">
+              <input
+                type="text"
+                id="referral-link-input"
+                class="form-input"
+                style="font-size: 12.5px; padding: 10px 12px"
+                readonly
+              />
+              <button
+                type="button"
+                id="copy-referral-btn"
+                class="btn btn-secondary btn-sm"
+                style="flex-shrink: 0"
+              >
+                Copier
+              </button>
+              <a
+                id="whatsapp-share-btn"
+                href="#"
+                target="_blank"
+                class="btn btn-secondary btn-sm"
+                style="flex-shrink: 0; background: #25d366; color: #fff; border-color: #25d366"
+              >
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Formulaire fantôme pour que le robot Netlify détecte aussi le test d'intention d'achat -->
-  <form name="riles-founder-intent" data-netlify="true" hidden>
-    <input type="text" name="email" />
-    <input type="text" name="angle" />
-    <input type="text" name="utm_source" />
-    <input type="text" name="founder_offer" />
-  </form>
+    <!-- Formulaire fantôme pour que le robot Netlify détecte aussi le test d'intention d'achat -->
+    <form name="riles-founder-intent" data-netlify="true" hidden>
+      <input type="text" name="email" />
+      <input type="text" name="angle" />
+      <input type="text" name="utm_source" />
+      <input type="text" name="founder_offer" />
+    </form>
 
-  <script src="./js/app.js"></script>
-</body>
+    <script src="./js/app.js"></script>
+  </body>
 </html>

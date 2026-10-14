@@ -1,25 +1,25 @@
 :root {
-  --brand: #FF4D1C;
-  --brand-dark: #E03B0D;
-  --brand-light: #FFF1ED;
-  --brand-border: #FFD3C6;
-  --slate-950: #090E1A;
-  --slate-900: #0F172A;
-  --slate-800: #1E293B;
+  --brand: #ff4d1c;
+  --brand-dark: #e03b0d;
+  --brand-light: #fff1ed;
+  --brand-border: #ffd3c6;
+  --slate-950: #090e1a;
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
   --slate-700: #334155;
   --slate-600: #475569;
-  --slate-500: #64748B;
-  --slate-400: #94A3B8;
-  --slate-200: #E2E8F0;
-  --slate-100: #F1F5F9;
-  --slate-50: #F8FAFC;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
   --emerald-600: #059669;
-  --emerald-500: #10B981;
-  --emerald-50: #ECFDF5;
-  --amber-500: #F59E0B;
-  --amber-50: #FFFBEB;
-  --red-500: #EF4444;
-  --red-50: #FEF2F2;
+  --emerald-500: #10b981;
+  --emerald-50: #ecfdf5;
+  --amber-500: #f59e0b;
+  --amber-50: #fffbeb;
+  --red-500: #ef4444;
+  --red-50: #fef2f2;
   --radius-sm: 12px;
   --radius-md: 18px;
   --radius-lg: 24px;
@@ -38,7 +38,13 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   color: var(--slate-900);
   background-color: var(--slate-50);
   -webkit-font-smoothing: antialiased;
@@ -183,7 +189,10 @@ body {
   border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
 }
 
 .btn:active {
@@ -434,7 +443,7 @@ body {
    ========================================================================== */
 .simulator-section {
   padding: 80px 0;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FFF7F4 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fff7f4 100%);
 }
 
 .section-header {
@@ -612,7 +621,7 @@ body {
   gap: 6px;
   background: var(--emerald-50);
   color: var(--emerald-600);
-  border: 1px solid #A7F3D0;
+  border: 1px solid #a7f3d0;
   padding: 5px 12px;
   border-radius: 999px;
   font-size: 12.5px;
@@ -636,7 +645,7 @@ body {
 }
 
 .day-card.done {
-  background: #F8FAFC;
+  background: #f8fafc;
   opacity: 0.82;
 }
 
@@ -1144,7 +1153,7 @@ body {
   align-items: center;
   gap: 12px;
   background: var(--emerald-50);
-  border: 1px solid #A7F3D0;
+  border: 1px solid #a7f3d0;
   border-radius: var(--radius-sm);
   padding: 12px 14px;
 }
@@ -1278,7 +1287,7 @@ body {
   font-weight: 900;
   color: var(--emerald-600);
   background: var(--emerald-50);
-  border: 1px solid #A7F3D0;
+  border: 1px solid #a7f3d0;
   padding: 4px 8px;
   border-radius: 6px;
   letter-spacing: 0.04em;
@@ -1294,7 +1303,7 @@ body {
 
 /* Carte Offre Membre Fondateur */
 .founder-offer-card {
-  background: linear-gradient(135deg, #FFF5F1 0%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #fff5f1 0%, #ffffff 100%);
   border: 1.5px solid var(--brand);
   border-radius: var(--radius-md);
   padding: 18px;
