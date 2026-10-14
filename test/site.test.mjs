@@ -115,6 +115,25 @@ test('no fabricated statistics or fake scarcity in the landing copy', () => {
   assert.doesNotMatch(both, /countdown|compte à rebours/i, 'no fake countdown markup');
 });
 
+test('CSP allows the GA4 loader and collector (RILES-058)', () => {
+  const toml = read('netlify.toml');
+  const cspMatch = toml.match(/Content-Security-Policy = "([^"]*)"/);
+  assert.ok(cspMatch, 'netlify.toml must declare a Content-Security-Policy');
+  const csp = cspMatch[1];
+
+  const scriptSrc = (csp.match(/script-src ([^;]+)/) || [])[1] || '';
+  const connectSrc = (csp.match(/connect-src ([^;]+)/) || [])[1] || '';
+
+  assert.match(scriptSrc, /googletagmanager\.com/, 'script-src must allow the GA4 loader');
+  assert.match(connectSrc, /google-analytics\.com/, 'connect-src must allow GA4 collection');
+  assert.match(connectSrc, /analytics\.google\.com/, 'connect-src must allow regional GA4 hosts');
+
+  // Existing analytics must stay allowed
+  assert.match(scriptSrc, /clarity\.ms/, 'script-src must keep Clarity');
+  assert.match(scriptSrc, /posthog\.com/, 'script-src must keep PostHog');
+  assert.match(connectSrc, /posthog\.com/, 'connect-src must keep PostHog');
+});
+
 test('analytics trackers only load after cookie consent', () => {
   const html = read('index.html');
   assert.match(html, /id="cookie-consent-banner"/, 'cookie consent banner must exist');
