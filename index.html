@@ -364,7 +364,7 @@
         <div class="section-header">
           <div class="badge-eyebrow">LE PROBLÈME DES PLANS ACTUELS</div>
           <h2 class="section-title">
-            Pourquoi 73 % des coureurs décrochent de leur plan avant le jour J ?
+            Pourquoi tant de coureurs décrochent de leur plan avant le jour J ?
           </h2>
           <p class="section-desc">
             Ce n'est pas un manque de volonté : c'est parce que les plans figés ne pardonnent aucun
@@ -527,6 +527,10 @@
             Demander un accès Bêta
           </button>
         </div>
+        <nav class="footer-legal" aria-label="Liens légaux">
+          <a href="./confidentialite.html">Politique de confidentialité</a>
+          <a href="./mentions-legales.html">Mentions légales</a>
+        </nav>
       </div>
     </footer>
 
@@ -774,14 +778,33 @@
               </div>
             </div>
 
+            <div class="consent-row">
+              <input type="checkbox" id="form-consent" name="consent" required />
+              <label for="form-consent">
+                J'accepte que mon email et mes réponses soient utilisés pour la liste d'attente,
+                comme décrit dans la
+                <a href="./confidentialite.html">politique de confidentialité</a>. L'horodatage de
+                ce consentement est enregistré avec mon inscription. *
+              </label>
+            </div>
+            <input type="hidden" id="form-consent-timestamp" name="consent_timestamp" value="" />
+
             <button
               type="submit"
               id="btn-submit-waitlist"
               class="btn btn-primary btn-lg"
               style="width: 100%; margin-top: 14px"
             >
-              Réserver mon Dossard Bêta (#142) →
+              Réserver mon Dossard Bêta →
             </button>
+
+            <p class="form-legal-note">
+              En t'inscrivant, tu acceptes que tes données soient utilisées pour la liste d'attente,
+              comme décrit dans notre
+              <a href="./confidentialite.html">politique de confidentialité</a>
+              (durée de conservation, droits d'accès, d'export et de suppression par email). Voir
+              aussi nos <a href="./mentions-legales.html">mentions légales</a>.
+            </p>
 
             <div class="form-trust-footer">
               <span>🔒 Données privées chiffrées</span>
@@ -812,7 +835,7 @@
             </div>
 
             <div class="bib-body">
-              <div class="bib-number">#0142</div>
+              <div class="bib-number">BÊTA</div>
               <div class="bib-category" id="bib-category-text">CATÉGORIE : SEMI-MARATHON</div>
               <div class="bib-athlete" id="bib-athlete-text">
                 ATHLÈTE : camille.runner@gmail.com
@@ -829,7 +852,7 @@
           <div class="founder-offer-card">
             <div class="founder-offer-top">
               <span class="founder-fire-badge">🔥 PRIVILÈGE PREMIER PELOTON</span>
-              <span class="founder-spots">Places restantes : 38 / 100</span>
+              <span class="founder-spots">Réservé aux inscrits de la bêta</span>
             </div>
 
             <h4
@@ -907,6 +930,30 @@
       <input type="text" name="utm_source" />
       <input type="text" name="founder_offer" />
     </form>
+
+    <!-- BANNIÈRE DE CONSENTEMENT AUX TRACEURS (aucun traceur chargé avant le choix) -->
+    <div
+      id="cookie-consent-banner"
+      class="cookie-banner"
+      role="dialog"
+      aria-live="polite"
+      aria-label="Consentement aux cookies de mesure d'audience"
+      hidden
+    >
+      <p class="cookie-banner-text">
+        Ce site utilise uniquement des cookies de mesure d'audience (PostHog, Microsoft Clarity,
+        Google Analytics). Rien n'est chargé sans ton accord et tu peux le retirer à tout moment.
+        <a href="./confidentialite.html#cookies">En savoir plus</a>
+      </p>
+      <div class="cookie-banner-actions">
+        <button type="button" id="cookie-consent-accept" class="btn btn-primary btn-sm">
+          Accepter
+        </button>
+        <button type="button" id="cookie-consent-refuse" class="btn btn-secondary btn-sm">
+          Refuser
+        </button>
+      </div>
+    </div>
 
     <script src="./js/app.js"></script>
   </body>

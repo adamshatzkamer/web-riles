@@ -113,6 +113,58 @@
     }
   }
 
+  // Consentement aux traceurs (RGPD) : mémorisé dans le navigateur.
+  // Aucun traceur n'est chargé tant que l'utilisateur n'a pas accepté.
+  const ANALYTICS_CONSENT_KEY = 'riles_cookie_consent';
+
+  function readAnalyticsConsent() {
+    try {
+      return window.localStorage.getItem(ANALYTICS_CONSENT_KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  function writeAnalyticsConsent(value) {
+    try {
+      window.localStorage.setItem(ANALYTICS_CONSENT_KEY, value);
+    } catch (err) {
+      console.info('[Consentement] Stockage local indisponible :', err.message);
+    }
+  }
+
+  function showCookieConsentBanner() {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (banner) banner.hidden = false;
+  }
+
+  function hideCookieConsentBanner() {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (banner) banner.hidden = true;
+  }
+
+  function setupCookieConsent() {
+    const acceptBtn = document.getElementById('cookie-consent-accept');
+    const refuseBtn = document.getElementById('cookie-consent-refuse');
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', function () {
+        writeAnalyticsConsent('granted');
+        hideCookieConsentBanner();
+        initExternalAnalytics();
+        trackEvent('analytics_consent_granted');
+      });
+    }
+
+    if (refuseBtn) {
+      refuseBtn.addEventListener('click', function () {
+        writeAnalyticsConsent('denied');
+        hideCookieConsentBanner();
+        trackEvent('analytics_consent_denied');
+      });
+    }
+  }
+
   function trackEvent(eventName, extraProps) {
     const payload = Object.assign(
       {
@@ -156,7 +208,7 @@
     injury: {
       eyebrow: 'PRÉVENTION SURCHARGE & MODÈLE PHYSIOLOGIQUE',
       titleHtml:
-        '78 % des blessures arrivent en forçant une séance <span class="highlight">quand ton corps dit stop</span>.',
+        'Quand ton corps dit stop, forcer la séance reste le chemin le plus court <span class="highlight">vers la blessure</span>.',
       subtitle:
         "Riles croise tes 6 derniers mois Strava/Garmin, ta fatigue nerveuse et tes imprévus quotidiens pour ajuster tes allures de seuil et préserver tes mollets jusqu'au jour J.",
     },
@@ -1034,6 +1086,12 @@
     const email = emailInput ? emailInput.value.trim() : '';
     if (!email) return;
 
+    // Consentement explicite obligatoire (RGPD) + horodatage
+    const consentBox = document.getElementById('form-consent');
+    if (consentBox && !consentBox.checked) return;
+    const consentTs = document.getElementById('form-consent-timestamp');
+    if (consentTs && !consentTs.value) consentTs.value = new Date().toISOString();
+
     state.submittedEmail = email;
 
     let reportedApp = state.selectedApp || 'campus';
@@ -1177,7 +1235,25 @@
   // 6. INITIALISATION AU CHARGEMENT DU DOM
   // ============================================================================
   document.addEventListener('DOMContentLoaded', function () {
-    initExternalAnalytics();
+    // Consentement cookies/traceurs : on ne charge Clarity, PostHog ni GA4
+    // que si l'utilisateur a explicitement accepté.
+    const storedConsent = readAnalyticsConsent();
+    if (storedConsent === 'granted') {
+      initExternalAnalytics();
+    } else if (storedConsent !== 'denied') {
+      showCookieConsentBanner();
+    }
+    setupCookieConsent();
+
+    // Consentement liste d'attente : horodatage ISO 8601 de la case cochée,
+    // transmis avec la soumission du formulaire Netlify.
+    const consentInput = document.getElementById('form-consent');
+    const consentTimestamp = document.getElementById('form-consent-timestamp');
+    if (consentInput && consentTimestamp) {
+      consentInput.addEventListener('change', function () {
+        consentTimestamp.value = consentInput.checked ? new Date().toISOString() : '';
+      });
+    }
 
     // Affiche la barre de switch d'angle en local ou si ?preview=1
     const isLocal =

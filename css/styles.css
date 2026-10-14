@@ -1351,6 +1351,166 @@ body {
 }
 
 /* ==========================================================================
+   PAGES LÉGALES + LIENS JURIDIQUES (footer & formulaire)
+   ========================================================================== */
+.footer-legal-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.footer-legal a {
+  color: var(--slate-400);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-legal a:hover {
+  color: #fff;
+}
+
+.legal-main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 56px 24px 72px;
+}
+
+.legal-back {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.legal-main h1 {
+  font-size: 34px;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+  color: var(--slate-900);
+}
+
+.legal-updated {
+  font-size: 13px;
+  color: var(--slate-500);
+  margin: 6px 0 28px;
+}
+
+.legal-main h2 {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--slate-900);
+  margin: 34px 0 10px;
+}
+
+.legal-main p,
+.legal-main li {
+  font-size: 15px;
+  color: var(--slate-600);
+  margin-bottom: 10px;
+}
+
+.legal-main ul {
+  padding-left: 22px;
+  margin-bottom: 12px;
+}
+
+.legal-main li {
+  margin-bottom: 6px;
+}
+
+.legal-main a {
+  color: var(--brand);
+}
+
+.legal-main strong {
+  color: var(--slate-800);
+}
+
+.form-legal-note {
+  font-size: 12.5px;
+  color: var(--slate-500);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.form-legal-note a {
+  color: var(--brand);
+}
+
+/* Case de consentement RGPD du formulaire de liste d'attente */
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--slate-600);
+  line-height: 1.5;
+}
+
+.consent-row input[type='checkbox'] {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: var(--brand);
+}
+
+.consent-row a {
+  color: var(--brand);
+}
+
+/* Bannière de consentement aux traceurs */
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 70;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid var(--slate-200);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.cookie-banner[hidden] {
+  display: none;
+}
+
+.cookie-banner-text {
+  flex: 1 1 380px;
+  font-size: 13.5px;
+  color: var(--slate-600);
+}
+
+.cookie-banner-text a {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 980px) {
