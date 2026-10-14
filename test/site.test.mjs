@@ -41,3 +41,43 @@ test('no untracked absolute http:// asset links (mixed content risk)', () => {
   const insecure = html.match(/(?:src|href)="http:\/\/[^"]+"/g) || [];
   assert.deepEqual(insecure, [], `found insecure http:// references: ${insecure.join(', ')}`);
 });
+
+test('legal pages exist and are linked from the footer and the form area', () => {
+  for (const f of ['confidentialite.html', 'mentions-legales.html']) {
+    assert.ok(existsSync(join(root, f)), `missing ${f}`);
+    const page = read(f);
+    assert.match(page, /<html[^>]*\slang="[^"]+"/, `${f} must declare a lang attribute`);
+    assert.match(page, /<title>[^<]+<\/title>/, `${f} must have a title`);
+    assert.match(page, /<h1>[^<]+<\/h1>/, `${f} must have a single main heading`);
+  }
+
+  const html = read('index.html');
+
+  const footerStart = html.indexOf('<footer');
+  assert.ok(footerStart !== -1, 'index.html must render a footer');
+  const footer = html.slice(footerStart);
+  assert.match(footer, /href="\.\/confidentialite\.html"/, 'footer must link the privacy policy');
+  assert.match(footer, /href="\.\/mentions-legales\.html"/, 'footer must link the legal notices');
+
+  const formStart = html.indexOf('id="waitlist-form"');
+  assert.ok(formStart !== -1, 'waitlist form must exist');
+  const formEnd = html.indexOf('</form>', formStart);
+  assert.ok(formEnd !== -1, 'waitlist form must be closed');
+  const formArea = html.slice(formStart, formEnd);
+  assert.match(
+    formArea,
+    /href="\.\/confidentialite\.html"/,
+    'form area must link the privacy notice',
+  );
+
+  assert.match(
+    read('confidentialite.html'),
+    /href="\.\/mentions-legales\.html"/,
+    'privacy policy must link the legal notices',
+  );
+  assert.match(
+    read('mentions-legales.html'),
+    /href="\.\/confidentialite\.html"/,
+    'legal notices must link the privacy policy',
+  );
+});
