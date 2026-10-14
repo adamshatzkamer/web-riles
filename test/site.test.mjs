@@ -96,6 +96,25 @@ test('waitlist form captures explicit consent with a logged timestamp', () => {
   assert.match(js, /consentBox\.checked/, 'app.js must refuse to submit without consent');
 });
 
+test('no fabricated statistics or fake scarcity in the landing copy', () => {
+  const html = read('index.html');
+  const js = read('js/app.js');
+  const both = html + js;
+
+  // Unsourced percentage claims flagged in RILES-057
+  assert.doesNotMatch(html, /\b7[38]\s?%/, 'index.html must not carry the "73 %"/"78 %" claims');
+  assert.doesNotMatch(js, /7[38] %/, 'js/app.js must not carry the "78 %" claim');
+  assert.doesNotMatch(both, /\b\d{1,3}\s?%\s+des\s+\w+/, 'no unsourced "X % des …" claims');
+
+  // Fabricated waitlist counters and positions
+  assert.doesNotMatch(html, /38\s*\/\s*100/, 'no fabricated "38 / 100" spots counter');
+  assert.doesNotMatch(both, /#0?142\b/, 'no fabricated waitlist position (#142)');
+  assert.doesNotMatch(html, /places restantes\s*:\s*\d+/i, 'no remaining-spots counter');
+
+  // Fake countdown / urgency timers
+  assert.doesNotMatch(both, /countdown|compte à rebours/i, 'no fake countdown markup');
+});
+
 test('analytics trackers only load after cookie consent', () => {
   const html = read('index.html');
   assert.match(html, /id="cookie-consent-banner"/, 'cookie consent banner must exist');

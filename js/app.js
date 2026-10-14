@@ -208,7 +208,7 @@
     injury: {
       eyebrow: 'PRÉVENTION SURCHARGE & MODÈLE PHYSIOLOGIQUE',
       titleHtml:
-        '78 % des blessures arrivent en forçant une séance <span class="highlight">quand ton corps dit stop</span>.',
+        'Quand ton corps dit stop, forcer la séance reste le chemin le plus court <span class="highlight">vers la blessure</span>.',
       subtitle:
         "Riles croise tes 6 derniers mois Strava/Garmin, ta fatigue nerveuse et tes imprévus quotidiens pour ajuster tes allures de seuil et préserver tes mollets jusqu'au jour J.",
     },
